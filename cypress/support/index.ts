@@ -15,7 +15,17 @@
 
 // Import commands.ts using ES2015 syntax:
 import './commands'
-// cypress/support/index.ts
+import { LoremIpsum } from "lorem-ipsum";
+const lorem = new LoremIpsum({
+    sentencesPerParagraph: {
+        max: 8,
+        min: 4
+    },
+    wordsPerSentence: {
+        max: 16,
+        min: 4
+    }
+});
 Cypress.Commands.add('dataCy', (value) => {
     return cy.get(`[data-cy=${value}]`)
 })
